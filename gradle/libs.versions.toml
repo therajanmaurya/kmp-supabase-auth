@@ -5,7 +5,7 @@ compose-multiplatform = "1.11.0"
 android-minSdk = "24"
 android-compileSdk = "36"
 android-targetSdk = "36"
-vanniktechMavenPublish = "0.36.0"
+vanniktechMavenPublish = "0.37.0"
 
 # Code Quality
 detekt = "1.23.8"
