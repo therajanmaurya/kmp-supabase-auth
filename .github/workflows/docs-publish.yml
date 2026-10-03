@@ -49,7 +49,7 @@ permissions:
 jobs:
   build:
     name: Assemble site & verify links
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
 
@@ -72,7 +72,7 @@ jobs:
     # attempting it there fails in a way that reads as a Cloudflare problem rather than a
     # by-design skip.
     if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     environment:
       name: docs
       url: https://kmp-supabase-auth-docs.pages.dev

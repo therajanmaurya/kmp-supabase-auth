@@ -12,6 +12,23 @@ section in step with `supabaseauth.version` in `gradle.properties`.
 
 ## [Unreleased]
 
+### Changed — CI runners pinned to `ubuntu-26.04`
+
+- All 9 `runs-on:` sites in this repo's own workflows, plus the six `mbl-actionhub` refs bumped
+  `@v1.9.1` → `@v1.9.2` (which carries the same pin across the reusable workflows).
+
+  GitHub migrates `ubuntu-latest` to Ubuntu 26 **gradually**, 19 Oct → 19 Nov 2026
+  ([actions/runner-images#14748](https://github.com/actions/runner-images/issues/14748)). A floating
+  label during a staged rollout means the same workflow can land on 24.04 or 26.04 run to run, so a
+  toolchain-sensitive failure appears intermittently with no commit to blame. This library compiles
+  `linuxX64` klibs against the host toolchain and glibc and publishes to **immutable** Maven Central,
+  where a bad artifact can only be superseded, never withdrawn.
+
+  Pinning `24.04` instead would defer identical work, carries no guarantee of that image's lifetime,
+  and gives up the one advantage available now: a working rollback. The decision is explicit versus
+  floating, not old versus new. `macos-latest` / `windows-latest` are untouched — same class, no dated
+  migration.
+
 ### Fixed — a publish now completes the release cycle
 
 - **`bump-after-release: true`.** The reusable workflow's `Open Bump PR (next cycle)` job was wired

@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   pr-check:
-    uses: MobileByteLabs/mbl-actionhub/.github/workflows/ci-kmp-library.yml@v1.9.1
+    uses: MobileByteLabs/mbl-actionhub/.github/workflows/ci-kmp-library.yml@v1.9.2
     with:
       # This repo publishes cmp-supabase-auth + cmp-supabase-auth-compose. `sample-app` is outside the
       # pattern — samples are proof, not artifacts, and must never reach Maven Central.
@@ -41,7 +41,7 @@ jobs:
   # this gate failed to actually run on PR #15 while showing a red X and an empty log.
   publish-config:
     name: Publish task configures
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
@@ -71,7 +71,7 @@ jobs:
   # are, on push, where they belong.
   docs:
     name: Docs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
@@ -136,7 +136,7 @@ jobs:
   # per module, so it does not fit that workflow's per-module matrix.
   coverage:
     name: Kover Coverage
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
@@ -186,7 +186,7 @@ jobs:
   # is what makes an accidental breaking change visible to a reviewer.
   api-check:
     name: Binary Compatibility (BCV)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7

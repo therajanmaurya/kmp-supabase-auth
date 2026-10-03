@@ -56,7 +56,7 @@ jobs:
   refresh:
     name: Refresh and land
     if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
     outputs:
