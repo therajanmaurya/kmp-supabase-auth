@@ -15,7 +15,11 @@ section in step with `supabaseauth.version` in `gradle.properties`.
 ### Changed — CI runners pinned to `ubuntu-26.04`
 
 - All 9 `runs-on:` sites in this repo's own workflows, plus the six `mbl-actionhub` refs bumped
-  `@v1.9.1` → `@v1.9.2` (which carries the same pin across the reusable workflows).
+  `@v1.9.1` → `@v1.9.3`. That tag carries the same runner pin across the reusable workflows AND the
+  default-branch detection fix (`mbl-actionhub#14`): `ci-kmp-library.yml` decided "build everything"
+  from a hardcoded `^(main|master|development)$`, which does not match this repo's `dev` — so a
+  default-branch push fell through to a `HEAD~1` diff and built only changed modules. v1.9.2 was cut
+  before that PR merged and is superseded.
 
   GitHub migrates `ubuntu-latest` to Ubuntu 26 **gradually**, 19 Oct → 19 Nov 2026
   ([actions/runner-images#14748](https://github.com/actions/runner-images/issues/14748)). A floating
