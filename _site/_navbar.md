@@ -1,3 +1,0 @@
-- [GitHub](https://github.com/MobileByteLabs/kmp-supabase-auth)
-- [Maven Central](https://central.sonatype.com/search?q=io.github.mobilebytelabs.supabaseauth)
-- [Supabase docs](https://supabase.com/docs/reference/kotlin/introduction)
