@@ -12,13 +12,6 @@ section in step with `supabaseauth.version` in `gradle.properties`.
 
 ## [Unreleased]
 
-## [0.3.1] - unreleased
-
-> Version declared by `gradle.properties#supabaseauth.version`, bumped automatically after the 0.3.0
-> release (`bump-after-release`). That job advances the version but does **not** create this heading,
-> so `assert-changelog.sh` fails until someone writes it — correctly, since a publish from that state
-> would ship with no release notes. Worth knowing when the next bump PR lands.
-
 ### Documentation — corrected the claims the device run falsified
 
 Four documented instructions were wrong in a way no test could catch, because each described a path
